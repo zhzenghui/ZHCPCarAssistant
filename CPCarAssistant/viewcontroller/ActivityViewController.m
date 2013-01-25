@@ -238,21 +238,21 @@
 
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
-    NSArray *arrayFile =  [NSArray arrayWithObjects:
-                               @"http://a.36krcnd.com/photo/4a410149f40e4a7e27ca431e19d290b7.jpeg",
-                               nil];
-    NSDictionary *addFileDict = [NSDictionary dictionaryWithObjectsAndKeys: 
-                                 arrayFile, @"addFile",
-                                 nil];
-    NSDictionary *dictFile = [NSDictionary dictionaryWithObjectsAndKeys: 
-                              addFileDict, @"file",
-                              nil];
-    
-    NSDictionary *dictDT = [NSDictionary dictionaryWithObjectsAndKeys:
-                          dictFile, @"file", 
-                            @"", @"Data",
-                          nil];
-    [[DictDataToDBData dataToDbHelper:dictDT] addFiles];
+//    NSArray *arrayFile =  [NSArray arrayWithObjects:
+//                               @"http://a.36krcnd.com/photo/4a410149f40e4a7e27ca431e19d290b7.jpeg",
+//                               nil];
+//    NSDictionary *addFileDict = [NSDictionary dictionaryWithObjectsAndKeys: 
+//                                 arrayFile, @"addFile",
+//                                 nil];
+//    NSDictionary *dictFile = [NSDictionary dictionaryWithObjectsAndKeys: 
+//                              addFileDict, @"file",
+//                              nil];
+//    
+//    NSDictionary *dictDT = [NSDictionary dictionaryWithObjectsAndKeys:
+//                          dictFile, @"file", 
+//                            @"", @"Data",
+//                          nil];
+//    [[DictDataToDBData dataToDbHelper:dictDT] addFiles];
 }
 
 - (void)viewDidUnload

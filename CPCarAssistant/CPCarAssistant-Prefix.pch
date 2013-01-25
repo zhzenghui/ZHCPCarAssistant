@@ -62,10 +62,30 @@
 #define KActivity_Tel @"Tel"
 
 
+#define KAuto_AutoID @"AutoID"
+#define KAuto_AutoImg @"AutoImg"
+#define KAuto_IsTestDrive @"IsTestDrive"
+#define KAuto_MSRP @"MSRP"
+#define KAuto_Name @"Name"
+#define KAuto_OrderNum @"OrderNum"
+#define KAuto_SeriesID @"SeriesID"
 
+#define KAutoSeries @"AutoSeries"
+#define KAutoSeries_SeriesID @"SeriesID"            
+#define KAutoSeries_Name @"Name"
+#define KAutoSeries_Describe @"Describe"
+#define KAutoSeries_SeriesImg @"SeriesImg"
+#define KAutoSeries_OrderNum @"OrderNum"
 
-
-
+#define KImages @"Images"
+#define KImages_ImageID @"ImageID"
+#define KImages_Name @"Name"
+#define KImages_Describe @"Describe"
+#define KImages_AutoID @"AutoID"
+#define KImages_Thumbnail @"Thumbnail"
+#define KImages_ImgURL @"ImgURL"
+#define KImages_SeriesImg @"SeriesImg"
+#define KImages_OrderNum @"OrderNum"
 
 //#define KTestfieldAutoModelData @"automodelData"
 //#define KTestfieldPrivinceData @"privinceData"

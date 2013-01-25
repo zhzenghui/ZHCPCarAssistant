@@ -314,13 +314,12 @@
 
 
                     debugLog(@"update local file system");
-                    [[DictDataToDBData dataToDbHelper] addFiles:[dataDict objectForKey:KFile]];
+                    [[DictDataToDBData dataToDbHelper] data:dataDict ];
                     [self.tableView reloadData];
                 }
                 else {
                     debugLog(@"no update record");
                 }
-                
             }
             else {
                 

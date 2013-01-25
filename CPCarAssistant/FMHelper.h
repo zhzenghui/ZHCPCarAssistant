@@ -9,6 +9,9 @@ typedef enum {
     DBTableNameMyCar=0, //我的车
     DBTableNameConsumeRecord, //养车记录
     DBTableNameMessage,
+    DBTableNameAuto,
+    DBTableNameAutoSeries,
+    DBTableNameImages
 } DBTableName;
 
 #import "FMQueryHelper.h"

@@ -7,19 +7,16 @@
 //
 
 #import "DictDataToDBData.h"
+#import "FMHelper.h"
+
+#define KData_AddItems @"AddItems"
+#define KData_DelItems @"DelItems"
+#define KData_UpdateItems @"UpdateItems"
 
 
-#define KAddItems @"AddItems"
-    #define KAddItems_TableName @"table"
-
-#define KDelItems @"DelItems"
-#define KUpdateItems @"UpdateItems"
-
-#define KFile_Add_Auto @"AddFile"
-#define KFile_Add_AutoSeries @"AutoSeries"
-#define KFile_Add_AutoImg @"AutoImg"
-#define KFile_Add_Images @"Images"
-
+#define KData_Table_Auto @"Auto"
+#define KData_Table_AutoSeries @"AutoSeries"
+#define KData_Table_Images @"Images"
 
 
 #define KFile_DelFile_Auto @"DelFile"
@@ -53,21 +50,19 @@ NSDictionary *FileDict;
     return fbInsertHelper;
 }
 
-- (void)addItemsDBData:(NSDictionary *)dict
+- (void)addItemsDBData:(NSArray *)array tableName:(DBTableName)tableName
 {
-    NSDictionary *addDict = [dataDict objectForKey:KAddItems];
-    NSString *table = [addDict objectForKey:KAddItems_TableName];
-    
+    [[FMInsertHelper insertHelper:DBTypeNameDocument] insertData :array :tableName];    
 }
 
-- (void)delItemsDBData:(NSDictionary *)dict
+- (void)delItemsDBData:(NSArray *)array tableName:(DBTableName)tableName
 {
-    NSDictionary *delDict = [dataDict objectForKey:KAddItems];
+    [FMUpdateHelper updateHelper:DBTypeNameDocument];
 }
 
-- (void)updateItemsDBData:(NSDictionary *)dict
+- (void)updateItemsDBData:(NSArray *)array tableName:(DBTableName)tableName
 {
-    NSDictionary *updateDict = [dataDict objectForKey:KAddItems];
+    NSDictionary *updateDict = [dataDict objectForKey:KData_AddItems];
 }
 
 
@@ -189,7 +184,7 @@ NSDictionary *FileDict;
     }
 }
 
-- (void)addFiles:(NSDictionary *)FileDict
+- (void)filesHandle:(NSDictionary *)FileDict
 {
 ////下载添加文件 ＊添加下载是否成功标记，  以便失败后再次下载＊/////////////////////////////////////////////
     NSDictionary *addAutoDict = [FileDict objectForKey:KFile_AddFile_Auto];
@@ -205,7 +200,7 @@ NSDictionary *FileDict;
     
 ////删除本地文件 /////////////////////////////////////////////////////////////////////////////////    
     NSDictionary *delDict = [FileDict objectForKey:KFile_DelFile_Auto];
-    if (delDict) {
+    if (delDict == nil) {
 //        NSLog(@"delDict:%@", [delDict allValues]);
         [self  delFile:[delDict allValues]];
     }
@@ -214,5 +209,57 @@ NSDictionary *FileDict;
     }
 }
 
+- (void)dataHandle:(NSDictionary *)dataDict
+{
+    
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+    NSDictionary *AddItemsDict = [dataDict objectForKey:KData_AddItems];
+    NSDictionary *auto_AddItemsDict = [AddItemsDict objectForKey:KData_Table_Auto];
+    NSDictionary *autoSeries_AddItemsDict = [AddItemsDict objectForKey:KData_Table_AutoSeries];
+    NSDictionary *images_AddItemsDict = [AddItemsDict objectForKey:KData_Table_Images];    
+ 
+//  auto 表
+    if (auto_AddItemsDict != nil) {
+        [self addItemsDBData:[auto_AddItemsDict allValues] tableName:DBTableNameAuto];        
+    }
+//    autoSeries 表
+    if (autoSeries_AddItemsDict != nil) {
+        [self addItemsDBData:[autoSeries_AddItemsDict allValues]  tableName:DBTableNameAutoSeries];
+    }
+    
+//    image 表
+    if (images_AddItemsDict != nil) {
+        [self addItemsDBData:[images_AddItemsDict allValues]  tableName:DBTableNameImages];
+    }
+///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+    NSDictionary *updateItemsDict = [dataDict objectForKey:KData_UpdateItems];
+    NSDictionary *auto_UpdateItemsDict = [updateItemsDict objectForKey:KData_Table_Auto];
+    NSDictionary *autoSeries_UpdateItemsDict = [updateItemsDict objectForKey:KData_Table_AutoSeries];
+    NSDictionary *images_UpdateItemsDict = [updateItemsDict objectForKey:KData_Table_Images];    
+    
+    //  auto 表
+    if (auto_UpdateItemsDict != nil) {
+        [self updateItemsDBData:[auto_UpdateItemsDict allValues] tableName:DBTableNameAuto];        
+    }
+    //    autoSeries 表
+    if (autoSeries_UpdateItemsDict != nil) {
+        [self updateItemsDBData:[autoSeries_UpdateItemsDict allValues]  tableName:DBTableNameAutoSeries];
+    }
+    
+    //    image 表
+    if (images_UpdateItemsDict != nil) {
+        [self updateItemsDBData:[images_UpdateItemsDict allValues]  tableName:DBTableNameImages];
+    }
+
+}
+
+- (void)data:(NSDictionary *)dict
+{
+    [self dataHandle:  [dict objectForKey:KData]];
+
+    [self filesHandle: [dict objectForKey:KFile]];
+}
 
 @end

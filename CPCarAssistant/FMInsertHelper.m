@@ -61,6 +61,45 @@ static FMDatabase *db;
              ];
             break;
         }
+        case DBTableNameAuto:
+        {
+            [sql appendFormat: @"insert into Auto (AutoID,AutoImg, IsTestDrive, MSRP,Name,  OrderNum, SeriesID) values('%@','%@', '%@', '%@','%@', '%@', '%@') ", 
+             [itemDict objectForKey:KAuto_AutoID],
+             [itemDict objectForKey:KAuto_AutoImg],
+             [itemDict objectForKey:KAuto_IsTestDrive],
+             [itemDict objectForKey:KAuto_MSRP],
+             [itemDict objectForKey:KAuto_Name],
+             [itemDict objectForKey:KAuto_OrderNum],
+             [itemDict objectForKey:KAuto_SeriesID]
+             ];
+            break;
+        }
+        case DBTableNameAutoSeries:
+        {
+            [sql appendFormat: @"insert into AutoSeries (SeriesID,Name, SeriesImg, Describe, OrderNum) values('%@','%@', '%@', '%@','%@') ", 
+             [itemDict objectForKey:KAutoSeries_SeriesID],
+             [itemDict objectForKey:KAutoSeries_Name],
+             [itemDict objectForKey:KAutoSeries_SeriesImg],
+             [itemDict objectForKey:KAutoSeries_Describe],
+             [itemDict objectForKey:KAutoSeries_OrderNum]
+             ];
+            break;
+        }
+        case DBTableNameImages:
+        {
+
+            [sql appendFormat: @"insert into Images (ImageID,AutoID, Thumbnail, ImgURL,Describe,Name,SeriesImg, OrderNum) values('%@','%@', '%@', '%@','%@', '%@','%@', '%@') ", 
+             [itemDict objectForKey:KImages_ImageID],
+             [itemDict objectForKey:KImages_AutoID],
+             [itemDict objectForKey:KImages_Thumbnail],
+             [itemDict objectForKey:KImages_ImgURL],
+             [itemDict objectForKey:KImages_Describe],             
+             [itemDict objectForKey:KImages_Name],
+             [itemDict objectForKey:KImages_SeriesImg],
+             [itemDict objectForKey:KImages_OrderNum]
+             ];
+            break;
+        }
         default:
             break;
     }
@@ -76,7 +115,7 @@ static FMDatabase *db;
     
     BOOL res = [db executeUpdate:sql];
     if (!res) {
-        debugLog(@"error to insert data");
+        debugLog(@"error to insert data: %@",sql);
     } else {
         debugLog(@"succ to insert data");
     }
