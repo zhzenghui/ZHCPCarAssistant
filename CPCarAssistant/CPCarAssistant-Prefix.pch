@@ -1,0 +1,164 @@
+//
+// Prefix header for all source files of the 'CPCarAssistant' target in the 'CPCarAssistant' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+
+
+#import "ActivityViewController.h"
+#import "AutoModelViewController.h"
+#import "TestDrive_PreserverViewController.h"
+#import "MessageViewController.h"
+#import "Dealer_BoutiqueViewController.h"
+#import "OwnersFAQViewController.h"
+#import "Gas_StopsViewController.h"
+#import "ConsumeRecordViewController.h"
+#import "OriginalFittingsViewController.h"
+#import "SysSettingViewController.h"
+#import "ViolateViewController.h"
+
+#import "NSString+helper.h"
+#import "JSONKit.h"
+
+
+#define ScreenSize [[UIScreen mainScreen] bounds];
+
+
+#define KData @"Data"
+#define KFile @"File"
+
+
+
+#define KMENU_BUTTON_Activity 10
+
+#define KMENU_BUTTON_AutoModel 11
+#define KMENU_BUTTON_TestDrive_Preserver 12
+#define KMENU_BUTTON_MessageView 13
+#define KMENU_BUTTON_Dealer_Boutique 14
+#define KMENU_BUTTON_OwnersFAQView 15
+#define KMENU_BUTTON_Gas_StopsView 16
+#define KMENU_BUTTON_ConsumeRecordView 17
+#define KMENU_BUTTON_OriginalFittings 18
+#define KMENU_BUTTON_ViolateView 19
+#define KMENU_BUTTON_SysSetting 20
+
+
+#define KActivity_ID @"ID"
+#define KActivity_Dealer @"Dealer"
+#define KActivity_Title @"Title"
+#define KActivity_ImgURL @"ImgURL"
+#define KActivity_SupTime @"SupTime"
+#define KActivity_ActivityTime @"ActivityTime"
+#define KActivity_Tel @"Tel"
+
+
+
+
+
+
+
+//#define KTestfieldAutoModelData @"automodelData"
+//#define KTestfieldPrivinceData @"privinceData"
+//#define KTestfieldCityData @"cityData"
+//#define KTestfieldDealerData @"dealerData"
+//#define KTestfieldFranchiseData @"franchiseData"
+
+#define KUserNameData @"CustName"
+#define KUserGenderData @"CustSex"
+#define KUserAreaData @"CustAddr"
+
+#define KUserTelphoneData @"telphone"
+#define KUserEmailData @"email"
+#define KUserTestTimeData @"testTime"
+#define KUserPayTimeData @"payTime"
+
+
+
+
+#define KTestfieldAutoModel @"AutoID"
+#define KTestfieldPrivince @"Province"
+#define KTestfieldCity @"City"
+#define KTestfieldDealer @"Dealer"
+#define KTestfieldFranchise @"Boutique"
+
+#define KPreserverCustName @"CustName"
+#define KPreserverCustSex @"CustSex"
+#define KPreserverCustAddr @"CustAddr"
+#define KPreserverCustPhone @"CustPhone"
+#define KPreserverCustMail @"CustMail"
+#define KPreserverPreserveTime @"PreserveTime"
+
+
+//  养车消费 表字段
+#define KConsumeRecordType @"type"
+#define KConsumeRecordPrice @"price"
+#define KConsumeRecordUptime @"uptime"
+
+// 消息的  表字段
+//'id' , 'Dealer' varchar(15), 'UDID' varchar(64), 'Message' varchar(300), 'Answer' varchar(300),'IsAnswer' bool, 'uptime' datetime
+#define KMessageId @"ID"
+#define KMessageDealer @"Dealer"
+#define KMessageUDID @"UDID"
+#define KMessageMessage @"Message"
+#define KMessageAnswer @"Answer"
+#define KMessageIsAnswer @"IsAnswer"
+#define KMessageUpTime @"UpTime"
+
+
+
+//http://192.168.1.101:8091/Prot/Appointment/Preserve.ashx
+#define KServerUrl @"http://192.168.1.101:8091/%@"
+#define KServerPreserverAdd @"Prot/Appointment/UpdatePreserveInfo.ashx"
+#define KServerMessageAdd @"Prot/Message/UpdateMessageInfo.ashx"
+#define KServerAboutCarUpdateCarInfo @"Prot/AboutCar/UpdateCarInfo.ashx"
+#define KServerFAQUpdateFAQInfo @"Prot/FAQ/UpdateFAQInfo.ashx"
+
+
+
+#define UPLOAD_TIME_OUT 60
+
+
+
+
+#ifdef DEBUG
+#define debugLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define debugLog(...)
+#define debugMethod()
+#endif
+
+#define EMPTY_STRING        @""
+
+#define STR(key)            NSLocalizedString(key, nil)
+
+#define PATH_OF_APP_HOME    NSHomeDirectory()
+#define PATH_OF_NSBUNDLE  [NSBundle mainBundle]
+#define PATH_OF_TEMP        NSTemporaryDirectory()
+#define PATH_OF_DOCUMENT    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
