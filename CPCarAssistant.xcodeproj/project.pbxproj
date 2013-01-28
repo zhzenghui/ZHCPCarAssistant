@@ -157,6 +157,8 @@
 		D71690CB1691372D00BA8A29 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = D71690C61691372D00BA8A29 /* area.plist */; };
 		D71690CF1691425F00BA8A29 /* AreaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D71690CD1691425E00BA8A29 /* AreaTableViewController.m */; };
 		D71690D01691425F00BA8A29 /* AreaTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71690CE1691425F00BA8A29 /* AreaTableViewController.xib */; };
+		D717F9C116B6121E00A14057 /* EGOBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D717F9BF16B6121E00A14057 /* EGOBaseTableViewController.m */; };
+		D717F9C216B6121E00A14057 /* EGOBaseTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D717F9C016B6121E00A14057 /* EGOBaseTableViewController.xib */; };
 		D71AAA10168D46D700434F99 /* AutoModelIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D71AAA0E168D46D600434F99 /* AutoModelIntroductionViewController.m */; };
 		D71AAA11168D46D700434F99 /* AutoModelIntroductionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71AAA0F168D46D600434F99 /* AutoModelIntroductionViewController.xib */; };
 		D71AAA1E168D497F00434F99 /* auto_automodel_sectionbackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71AAA14168D497F00434F99 /* auto_automodel_sectionbackground@2x.png */; };
@@ -540,6 +542,9 @@
 		D71690CC1691425E00BA8A29 /* AreaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaTableViewController.h; sourceTree = "<group>"; };
 		D71690CD1691425E00BA8A29 /* AreaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaTableViewController.m; sourceTree = "<group>"; };
 		D71690CE1691425F00BA8A29 /* AreaTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaTableViewController.xib; sourceTree = "<group>"; };
+		D717F9BE16B6121E00A14057 /* EGOBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOBaseTableViewController.h; sourceTree = "<group>"; };
+		D717F9BF16B6121E00A14057 /* EGOBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOBaseTableViewController.m; sourceTree = "<group>"; };
+		D717F9C016B6121E00A14057 /* EGOBaseTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EGOBaseTableViewController.xib; sourceTree = "<group>"; };
 		D71AAA0D168D46D600434F99 /* AutoModelIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoModelIntroductionViewController.h; sourceTree = "<group>"; };
 		D71AAA0E168D46D600434F99 /* AutoModelIntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoModelIntroductionViewController.m; sourceTree = "<group>"; };
 		D71AAA0F168D46D600434F99 /* AutoModelIntroductionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutoModelIntroductionViewController.xib; sourceTree = "<group>"; };
@@ -1259,6 +1264,9 @@
 		D7581A931688205E0013D402 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D70F6B76168C1FFF00FCE45D /* BaseViewController.h */,
+				D70F6B77168C1FFF00FCE45D /* BaseViewController.m */,
+				D70F6B78168C1FFF00FCE45D /* BaseViewController.xib */,
 				D77D3586169D0576005A5546 /* sql */,
 				D715DBC31697D1830039A20B /* PMCalendar */,
 				D71690BF1691371B00BA8A29 /* HZAreaPickerView */,
@@ -1271,9 +1279,6 @@
 				D7581A941688206D0013D402 /* Cell */,
 				D77D35C3169D5566005A5546 /* NSString+helper.h */,
 				D77D35C4169D5567005A5546 /* NSString+helper.m */,
-				D70F6B76168C1FFF00FCE45D /* BaseViewController.h */,
-				D70F6B77168C1FFF00FCE45D /* BaseViewController.m */,
-				D70F6B78168C1FFF00FCE45D /* BaseViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1446,6 +1451,9 @@
 				D7E07011168842F300E3C50D /* EGORefreshTableFootView.m */,
 				D7E07012168842F300E3C50D /* EGORefreshTableHeaderView.h */,
 				D7E07013168842F300E3C50D /* EGORefreshTableHeaderView.m */,
+				D717F9BE16B6121E00A14057 /* EGOBaseTableViewController.h */,
+				D717F9BF16B6121E00A14057 /* EGOBaseTableViewController.m */,
+				D717F9C016B6121E00A14057 /* EGOBaseTableViewController.xib */,
 			);
 			name = EGO;
 			sourceTree = "<group>";
@@ -1920,6 +1928,7 @@
 				D7DDDC5116B22F67007957C0 /* icon@2x.png in Resources */,
 				D7DDDC5316B22F9C007957C0 /* Entitlements.plist in Resources */,
 				D7DDDC9416B2315A007957C0 /* mapapi.bundle in Resources */,
+				D717F9C216B6121E00A14057 /* EGOBaseTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1990,6 +1999,7 @@
 				D7DDDC8616B230CB007957C0 /* JSONKit.m in Sources */,
 				D7DDDC8716B230CB007957C0 /* NSString+MD5Addition.m in Sources */,
 				D7DDDC8816B230CB007957C0 /* UIDevice+IdentifierAddition.m in Sources */,
+				D717F9C116B6121E00A14057 /* EGOBaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

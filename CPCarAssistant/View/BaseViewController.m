@@ -29,6 +29,49 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+
+
+- (void)addEgoView
+{
+    
+	if (_refreshHeaderView == nil) {
+		
+		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
+		view.delegate = self;
+		[self.tableView addSubview:view];
+		_refreshHeaderView = view;
+		
+	}
+	
+	//  update the last update date
+	[_refreshHeaderView refreshLastUpdatedDate];
+    [self.tableView reloadData];
+    
+    CGFloat height = self.tableView.contentSize.height;
+    CGFloat contentheight = self.tableView.frame.size.height;
+    NSLog(@"%f   %f", height, contentheight);
+    if (self.tableView.contentSize.height < self.tableView.frame.size.height  ) {
+        return;
+    }
+    if (_refreshFootView == nil) {
+        //		if (self.tableView.contentSize.height < self.view.frame.size.height) {
+        //            height = self.tableView.bounds.size.height-44;
+        //        }
+        //        else
+        
+        height = self.tableView.contentSize.height;
+		EGORefreshTableFootView *view = [[EGORefreshTableFootView alloc] initWithFrame:CGRectMake(0.0f, height, self.view.frame.size.width, self.tableView.bounds.size.height)];
+		view.delegate = self;
+		[self.tableView addSubview:view];
+		_refreshFootView = view;
+		
+	}
+    
+	//  update the last update date
+	[_refreshFootView refreshLastUpdatedDate];	
+    
+}
+
 // With a custom back button, we have to provide the action. We simply pop the view controller
 - (IBAction)back:(id)sender
 {

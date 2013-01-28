@@ -15,7 +15,6 @@
 }
 
 + (DictDataToDBData *)dataToDbHelper;
-- (void)addFiles:(NSDictionary *)FileDict;
 - (void)data:(NSDictionary *)dict;
 
 @end
