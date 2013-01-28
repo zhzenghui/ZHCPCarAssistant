@@ -214,8 +214,6 @@
     
 	[self addEgoView];
     
-    
-    
     UIImage *backButtonImage = [UIImage imageNamed:@"backButton"];
     UIImage* buttonImage = [backButtonImage stretchableImageWithLeftCapWidth:15 topCapHeight:12];
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -230,6 +228,10 @@
     
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
+    
+//     load local data  
+    
 }
 
 - (void)viewDidUnload

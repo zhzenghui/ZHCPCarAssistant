@@ -13,5 +13,6 @@
 
 @interface FMUpdateHelper : NSObject
 + (FMUpdateHelper *)updateHelper:(DBTypeName)dbTypeName;
-
+- (void)update:(NSDictionary *)itemDict :(DBTableName)tableName;
+- (void)updateData:(NSArray *)itemArray :(DBTableName)tableName;
 @end

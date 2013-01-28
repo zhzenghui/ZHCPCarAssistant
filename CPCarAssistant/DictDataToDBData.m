@@ -57,12 +57,11 @@ NSDictionary *FileDict;
 
 - (void)delItemsDBData:(NSArray *)array tableName:(DBTableName)tableName
 {
-    [FMUpdateHelper updateHelper:DBTypeNameDocument];
 }
 
 - (void)updateItemsDBData:(NSArray *)array tableName:(DBTableName)tableName
 {
-    NSDictionary *updateDict = [dataDict objectForKey:KData_AddItems];
+    [[FMUpdateHelper updateHelper:DBTypeNameDocument] updateData:array :tableName];
 }
 
 
@@ -156,6 +155,7 @@ NSDictionary *FileDict;
         
         NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:NULL error:NULL];
         if (data) {
+//            保存文件
             [self saveFile:data fileUrl:fileName];
         }
         
@@ -240,7 +240,7 @@ NSDictionary *FileDict;
     NSDictionary *images_UpdateItemsDict = [updateItemsDict objectForKey:KData_Table_Images];    
     
     //  auto 表
-    if (auto_UpdateItemsDict != nil) {
+    if ( auto_UpdateItemsDict == [NSNull null]) {
         [self updateItemsDBData:[auto_UpdateItemsDict allValues] tableName:DBTableNameAuto];        
     }
     //    autoSeries 表
